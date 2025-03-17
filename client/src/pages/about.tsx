@@ -163,8 +163,61 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Values Section */}
+      {/* Director's Message Section */}
       <section className="py-16 bg-slate-50 dark:bg-slate-800/50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 sm:p-8 md:p-10 border border-slate-200 dark:border-slate-700 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-500/10 to-transparent -z-10"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-indigo-500/10 to-transparent -z-10"></div>
+              
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                <div className="w-full md:w-1/4 flex flex-col items-center mb-8 md:mb-0">
+                  <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-blue-100 dark:border-slate-700 shadow-md mb-4">
+                    <img 
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&h=300&q=80" 
+                      alt="Director" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-center">John Davis</h3>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 text-center">Director, RELSOFT</p>
+                </div>
+                
+                <div className="w-full md:w-3/4">
+                  <h2 className="text-2xl font-bold mb-6 flex items-center">
+                    <i className="fas fa-quote-left text-blue-500/50 mr-3 text-xl"></i>
+                    Director's Message
+                  </h2>
+                  
+                  <div className="text-slate-700 dark:text-slate-300 space-y-4 relative text-sm sm:text-base">
+                    <p>Dear valued customers and visitors,</p>
+                    
+                    <p>Welcome to RELSOFT, the one-stop technology solutions! As the Director of RELSOFT, I am thrilled to have you here and to share with you a little bit about who we are and what we do.</p>
+                    
+                    <p>At RELSOFT we are a team of passionate technologists who are dedicated to using our expertise to drive innovation and deliver solutions that make a difference. With a focus on web design, graphic design, software development, digital marketing, and IT consultation.</p>
+                    
+                    <p>Thank you for choosing RELSOFT and for taking the time to visit our website. If you have any questions or need assistance, please don't hesitate to reach out to us. We are here to help.</p>
+                    
+                    <p>Sincerely,</p>
+                    
+                    <div className="text-blue-600 dark:text-blue-400 font-bold italic">John Davis</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -206,7 +259,7 @@ const AboutPage = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-16">
+      <section className="py-16 bg-slate-50 dark:bg-slate-800/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
