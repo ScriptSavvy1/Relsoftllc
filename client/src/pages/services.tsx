@@ -194,14 +194,7 @@ const ServicesPage = () => {
                       <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
                         {service.description}
                       </p>
-                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
-                        {service.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start">
-                            <i className="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      <FeatureList features={service.features} />
                       <Link href="/contact" className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all duration-300">
                         Get Started <i className="fas fa-arrow-right ml-2"></i>
                       </Link>
@@ -229,14 +222,7 @@ const ServicesPage = () => {
                       <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
                         {service.description}
                       </p>
-                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
-                        {service.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start">
-                            <i className="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      <FeatureList features={service.features} />
                       <Link href="/contact" className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all duration-300">
                         Get Started <i className="fas fa-arrow-right ml-2"></i>
                       </Link>
