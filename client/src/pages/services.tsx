@@ -94,18 +94,33 @@ const services = [
     ]
   },
   {
-    id: "cloud",
-    icon: "fas fa-server",
-    color: "violet",
-    title: "Cloud Solutions",
-    description: "Expert cloud architecture, migration, and management services for AWS, Azure, and Google Cloud platforms.",
+    id: "ai-agents",
+    icon: "fas fa-brain",
+    color: "purple",
+    title: "AI Agents for Business",
+    description: "Custom AI agents and automation solutions that transform business operations, customer service, and data processing workflows.",
     features: [
-      "Cloud Migration Strategy",
-      "AWS, Azure & GCP Solutions",
-      "Cloud Infrastructure Management",
-      "Serverless Architecture",
-      "Microservices Implementation",
-      "DevOps & CI/CD Pipelines"
+      "Custom GPT Solutions",
+      "Intelligent Customer Service Agents",
+      "Document Processing Automation",
+      "Business Process Automation",
+      "Data Analysis Agents",
+      "Multi-agent Systems & Workflows"
+    ]
+  },
+  {
+    id: "branding",
+    icon: "fas fa-palette",
+    color: "pink",
+    title: "Branding",
+    description: "Comprehensive branding solutions that build memorable, cohesive brand identities that resonate with your target audience.",
+    features: [
+      "Brand Strategy Development",
+      "Visual Identity Design",
+      "Logo & Typography",
+      "Brand Guidelines",
+      "Brand Messaging & Voice",
+      "Rebranding & Brand Refresh"
     ]
   }
 ];
@@ -150,7 +165,7 @@ const ServicesPage = () => {
               <motion.div 
                 key={service.id}
                 id={service.id}
-                className="flex flex-col lg:flex-row items-center gap-12"
+                className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -159,7 +174,7 @@ const ServicesPage = () => {
                 {/* Left side for even index, right side for odd index */}
                 {index % 2 === 0 ? (
                   <>
-                    <div className="lg:w-1/2">
+                    <div className="w-full lg:w-1/2 px-4 sm:px-6">
                       <div className={`w-14 h-14 rounded-lg bg-${service.color}-500/10 flex items-center justify-center mb-6`}>
                         <i className={`${service.icon} text-2xl text-${service.color}-500`}></i>
                       </div>
@@ -179,9 +194,9 @@ const ServicesPage = () => {
                         Get Started <i className="fas fa-arrow-right ml-2"></i>
                       </Link>
                     </div>
-                    <div className="lg:w-1/2 relative">
-                      <div className={`w-full h-80 rounded-xl bg-gradient-to-br from-${service.color}-500/20 to-slate-100 dark:from-${service.color}-500/10 dark:to-slate-800 p-8 border border-${service.color}-200 dark:border-${service.color}-900/30 shadow-xl flex items-center justify-center`}>
-                        <i className={`${service.icon} text-7xl text-${service.color}-500/50`}></i>
+                    <div className="w-full lg:w-1/2 relative px-4 sm:px-6 mt-8 lg:mt-0">
+                      <div className={`w-full h-64 sm:h-72 md:h-80 rounded-xl bg-gradient-to-br from-${service.color}-500/20 to-slate-100 dark:from-${service.color}-500/10 dark:to-slate-800 p-6 sm:p-8 border border-${service.color}-200 dark:border-${service.color}-900/30 shadow-xl flex items-center justify-center`}>
+                        <i className={`${service.icon} text-6xl sm:text-7xl text-${service.color}-500/50`}></i>
                       </div>
                       <div className={`absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-${service.color}-600 to-slate-600 rounded-xl -z-10 opacity-40 blur-xl`}></div>
                     </div>
@@ -189,8 +204,8 @@ const ServicesPage = () => {
                 ) : (
                   <>
                     <div className="lg:w-1/2 relative order-1 lg:order-none">
-                      <div className={`w-full h-80 rounded-xl bg-gradient-to-br from-${service.color}-500/20 to-slate-100 dark:from-${service.color}-500/10 dark:to-slate-800 p-8 border border-${service.color}-200 dark:border-${service.color}-900/30 shadow-xl flex items-center justify-center`}>
-                        <i className={`${service.icon} text-7xl text-${service.color}-500/50`}></i>
+                      <div className={`w-full h-64 sm:h-72 md:h-80 rounded-xl bg-gradient-to-br from-${service.color}-500/20 to-slate-100 dark:from-${service.color}-500/10 dark:to-slate-800 p-6 sm:p-8 border border-${service.color}-200 dark:border-${service.color}-900/30 shadow-xl flex items-center justify-center`}>
+                        <i className={`${service.icon} text-6xl sm:text-7xl text-${service.color}-500/50`}></i>
                       </div>
                       <div className={`absolute -bottom-4 -left-4 w-24 h-24 bg-gradient-to-br from-${service.color}-600 to-slate-600 rounded-xl -z-10 opacity-40 blur-xl`}></div>
                     </div>
