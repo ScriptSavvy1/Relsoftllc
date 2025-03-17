@@ -34,6 +34,21 @@ const services = [
     ]
   },
   {
+    id: "digital-marketing",
+    icon: "fas fa-bullhorn",
+    color: "green",
+    title: "Digital Marketing",
+    description: "Strategic digital marketing services that drive growth, engagement, and conversion through data-driven campaigns and optimization.",
+    features: [
+      "SEO & Content Strategy",
+      "Social Media Marketing",
+      "PPC & Paid Advertising",
+      "Email Marketing Campaigns",
+      "Analytics & Performance Tracking",
+      "Conversion Rate Optimization"
+    ]
+  },
+  {
     id: "cms",
     icon: "fas fa-columns",
     color: "violet",
@@ -145,8 +160,8 @@ const ServicesPage = () => {
                 {index % 2 === 0 ? (
                   <>
                     <div className="lg:w-1/2">
-                      <div className={`w-16 h-16 rounded-lg bg-${service.color}-500/10 flex items-center justify-center mb-6`}>
-                        <i className={`${service.icon} text-3xl text-${service.color}-500`}></i>
+                      <div className={`w-14 h-14 rounded-lg bg-${service.color}-500/10 flex items-center justify-center mb-6`}>
+                        <i className={`${service.icon} text-2xl text-${service.color}-500`}></i>
                       </div>
                       <h2 className="text-3xl font-bold mb-4">{service.title}</h2>
                       <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
@@ -166,7 +181,7 @@ const ServicesPage = () => {
                     </div>
                     <div className="lg:w-1/2 relative">
                       <div className={`w-full h-80 rounded-xl bg-gradient-to-br from-${service.color}-500/20 to-slate-100 dark:from-${service.color}-500/10 dark:to-slate-800 p-8 border border-${service.color}-200 dark:border-${service.color}-900/30 shadow-xl flex items-center justify-center`}>
-                        <i className={`${service.icon} text-8xl text-${service.color}-500/50`}></i>
+                        <i className={`${service.icon} text-7xl text-${service.color}-500/50`}></i>
                       </div>
                       <div className={`absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-${service.color}-600 to-slate-600 rounded-xl -z-10 opacity-40 blur-xl`}></div>
                     </div>
@@ -175,13 +190,13 @@ const ServicesPage = () => {
                   <>
                     <div className="lg:w-1/2 relative order-1 lg:order-none">
                       <div className={`w-full h-80 rounded-xl bg-gradient-to-br from-${service.color}-500/20 to-slate-100 dark:from-${service.color}-500/10 dark:to-slate-800 p-8 border border-${service.color}-200 dark:border-${service.color}-900/30 shadow-xl flex items-center justify-center`}>
-                        <i className={`${service.icon} text-8xl text-${service.color}-500/50`}></i>
+                        <i className={`${service.icon} text-7xl text-${service.color}-500/50`}></i>
                       </div>
                       <div className={`absolute -bottom-4 -left-4 w-24 h-24 bg-gradient-to-br from-${service.color}-600 to-slate-600 rounded-xl -z-10 opacity-40 blur-xl`}></div>
                     </div>
                     <div className="lg:w-1/2 order-none lg:order-1">
-                      <div className={`w-16 h-16 rounded-lg bg-${service.color}-500/10 flex items-center justify-center mb-6`}>
-                        <i className={`${service.icon} text-3xl text-${service.color}-500`}></i>
+                      <div className={`w-14 h-14 rounded-lg bg-${service.color}-500/10 flex items-center justify-center mb-6`}>
+                        <i className={`${service.icon} text-2xl text-${service.color}-500`}></i>
                       </div>
                       <h2 className="text-3xl font-bold mb-4">{service.title}</h2>
                       <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
