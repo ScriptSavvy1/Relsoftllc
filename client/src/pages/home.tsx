@@ -233,10 +233,8 @@ const HomePage = () => {
                 <p className="text-slate-600 dark:text-slate-400 mb-4">
                   {service.description}
                 </p>
-                <Link href={service.link}>
-                  <a className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium">
-                    Learn more <i className="fas fa-arrow-right ml-2 text-sm"></i>
-                  </a>
+                <Link href={service.link} className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium">
+                  Learn more <i className="fas fa-arrow-right ml-2 text-sm"></i>
                 </Link>
               </motion.div>
             ))}
@@ -249,10 +247,8 @@ const HomePage = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <Link href="/contact">
-              <a className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg hover:shadow-xl transition-all duration-300">
-                Talk to an expert
-              </a>
+            <Link href="/contact" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg hover:shadow-xl transition-all duration-300">
+              Talk to an expert
             </Link>
           </motion.div>
         </div>
@@ -299,10 +295,8 @@ const HomePage = () => {
                   <p className="text-slate-600 dark:text-slate-400 mb-4">
                     {blog.description}
                   </p>
-                  <Link href={blog.link}>
-                    <a className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium">
-                      Read more <i className="fas fa-arrow-right ml-2 text-sm"></i>
-                    </a>
+                  <Link href={blog.link} className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium">
+                    Read more <i className="fas fa-arrow-right ml-2 text-sm"></i>
                   </Link>
                 </div>
               </motion.div>
@@ -316,10 +310,8 @@ const HomePage = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <Link href="/blog">
-              <a className="inline-flex items-center justify-center px-6 py-3 border border-slate-300 dark:border-slate-600 text-base font-medium rounded-md text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm hover:shadow-md transition-all duration-300">
-                View all articles
-              </a>
+            <Link href="/blog" className="inline-flex items-center justify-center px-6 py-3 border border-slate-300 dark:border-slate-600 text-base font-medium rounded-md text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm hover:shadow-md transition-all duration-300">
+              View all articles
             </Link>
           </motion.div>
         </div>
@@ -346,15 +338,11 @@ const HomePage = () => {
                   Partner with Relsoft to build innovative solutions that drive growth and efficiency. Let's create something amazing together.
                 </p>
                 <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                  <Link href="/contact">
-                    <a className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-white hover:bg-blue-50 shadow-lg hover:shadow-xl transition-all duration-300">
-                      Contact Us
-                    </a>
+                  <Link href="/contact" className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-white hover:bg-blue-50 shadow-lg hover:shadow-xl transition-all duration-300">
+                    Contact Us
                   </Link>
-                  <Link href="/services">
-                    <a className="inline-flex justify-center items-center px-6 py-3 border border-white/30 text-base font-medium rounded-md text-white hover:bg-white/10 transition-all duration-300">
-                      Explore Services
-                    </a>
+                  <Link href="/services" className="inline-flex justify-center items-center px-6 py-3 border border-white/30 text-base font-medium rounded-md text-white hover:bg-white/10 transition-all duration-300">
+                    Explore Services
                   </Link>
                 </div>
               </div>
