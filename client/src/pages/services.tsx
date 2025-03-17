@@ -160,10 +160,8 @@ const ServicesPage = () => {
                           </li>
                         ))}
                       </ul>
-                      <Link href="/contact">
-                        <a className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all duration-300">
-                          Get Started <i className="fas fa-arrow-right ml-2"></i>
-                        </a>
+                      <Link href="/contact" className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all duration-300">
+                        Get Started <i className="fas fa-arrow-right ml-2"></i>
                       </Link>
                     </div>
                     <div className="lg:w-1/2 relative">
@@ -197,10 +195,8 @@ const ServicesPage = () => {
                           </li>
                         ))}
                       </ul>
-                      <Link href="/contact">
-                        <a className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all duration-300">
-                          Get Started <i className="fas fa-arrow-right ml-2"></i>
-                        </a>
+                      <Link href="/contact" className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all duration-300">
+                        Get Started <i className="fas fa-arrow-right ml-2"></i>
                       </Link>
                     </div>
                   </>
@@ -225,10 +221,8 @@ const ServicesPage = () => {
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
               Contact us today to discuss your project requirements and how our services can help you achieve your business goals.
             </p>
-            <Link href="/contact">
-              <a className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg hover:shadow-xl transition-all duration-300">
-                Contact Our Team
-              </a>
+            <Link href="/contact" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg hover:shadow-xl transition-all duration-300">
+              Contact Our Team
             </Link>
           </motion.div>
         </div>

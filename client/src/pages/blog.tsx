@@ -164,14 +164,12 @@ const BlogPage = () => {
                 variants={childVariant}
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
-                <Link href={`/blog/${article.id}`}>
-                  <a className="block">
-                    <img 
-                      src={article.image} 
-                      alt={article.title} 
-                      className="w-full h-48 object-cover hover:opacity-90 transition-opacity"
-                    />
-                  </a>
+                <Link href={`/blog/${article.id}`} className="block">
+                  <img 
+                    src={article.image} 
+                    alt={article.title} 
+                    className="w-full h-48 object-cover hover:opacity-90 transition-opacity"
+                  />
                 </Link>
                 <div className="p-6">
                   <div className="flex items-center mb-4">
@@ -180,10 +178,8 @@ const BlogPage = () => {
                     </span>
                     <span className="ml-auto text-sm text-slate-500 dark:text-slate-400">{formatDate(article.date)}</span>
                   </div>
-                  <Link href={`/blog/${article.id}`}>
-                    <a className="block">
-                      <h3 className="text-xl font-bold mb-3 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{article.title}</h3>
-                    </a>
+                  <Link href={`/blog/${article.id}`} className="block">
+                    <h3 className="text-xl font-bold mb-3 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{article.title}</h3>
                   </Link>
                   <p className="text-slate-600 dark:text-slate-400 mb-4">
                     {article.description}
@@ -197,10 +193,8 @@ const BlogPage = () => {
                       />
                       <span className="text-sm text-slate-600 dark:text-slate-400">{article.author.name}</span>
                     </div>
-                    <Link href={`/blog/${article.id}`}>
-                      <a className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium text-sm">
-                        Read more <i className="fas fa-arrow-right ml-1 text-xs"></i>
-                      </a>
+                    <Link href={`/blog/${article.id}`} className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium text-sm">
+                      Read more <i className="fas fa-arrow-right ml-1 text-xs"></i>
                     </Link>
                   </div>
                 </div>

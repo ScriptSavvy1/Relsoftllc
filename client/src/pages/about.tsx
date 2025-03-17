@@ -277,10 +277,8 @@ const AboutPage = () => {
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
               We're always looking for talented individuals to join our growing team. Check out our current openings.
             </p>
-            <Link href="/careers">
-              <a className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg hover:shadow-xl transition-all duration-300">
-                View Open Positions
-              </a>
+            <Link href="/careers" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg hover:shadow-xl transition-all duration-300">
+              View Open Positions
             </Link>
           </motion.div>
         </div>
