@@ -19,7 +19,7 @@ const articles = [
   },
   {
     id: "react-optimization",
-    image: "https://images.unsplash.com/photo-1559030623-0226c1bc98f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=340&q=80",
+    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=340&q=80",
     category: "Development",
     categoryColor: "indigo",
     date: "2023-05-28",
