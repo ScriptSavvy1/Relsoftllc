@@ -20,9 +20,14 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    // Check for saved theme preference or prefers-color-scheme
+    // Check theme.json first, then saved preference
+    const themeConfig = {
+      variant: "professional",
+      appearance: "dark",
+    };
+    
     const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const prefersDark = themeConfig.appearance === "dark" || window.matchMedia("(prefers-color-scheme: dark)").matches;
     
     if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
       setIsDarkMode(true);
