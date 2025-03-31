@@ -1,127 +1,223 @@
+import React from "react";
 import { Link } from "wouter";
+import { motion } from "framer-motion";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
-  const services = [
-    { name: "AI Solutions", href: "/services#ai" },
-    { name: "Web Development", href: "/services#web" },
-    { name: "CMS Design", href: "/services#cms" },
-    { name: "Coding Training", href: "/services#training" },
-    { name: "Mobile Development", href: "/services#mobile" },
-    { name: "Cloud Solutions", href: "/services#cloud" },
-  ];
-
-  const company = [
-    { name: "About Us", href: "/about" },
-    { name: "Careers", href: "/careers" },
-    { name: "Blog", href: "/blog" },
-    { name: "Press", href: "/press" },
-    { name: "Contact", href: "/contact" },
-  ];
-
-  const legal = [
-    { name: "Privacy Policy", href: "/privacy" },
-    { name: "Terms of Service", href: "/terms" },
-    { name: "Cookie Policy", href: "/cookie-policy" },
-    { name: "Data Protection", href: "/data-protection" },
-  ];
-
-  const socialLinks = [
-    { icon: "fab fa-linkedin-in", href: "https://linkedin.com" },
-    { icon: "fab fa-twitter", href: "https://twitter.com" },
-    { icon: "fab fa-github", href: "https://github.com" },
-    { icon: "fab fa-facebook-f", href: "https://facebook.com" },
-  ];
-
   return (
-    <footer className="bg-slate-900 text-white pt-16 pb-8">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          <div>
-            <Link href="/" className="flex items-center space-x-2 mb-6">
-              <div className="w-8 h-8 rounded-md bg-gradient-to-r from-blue-500 to-violet-500 flex items-center justify-center">
-                <span className="text-white font-bold text-xl">R</span>
-              </div>
-              <span className="text-xl font-bold text-white">Relsoft</span>
-            </Link>
-            <p className="text-slate-400 mb-6">
-              Leading technology solutions provider specializing in AI, web development, and cloud services.
+    <footer className="bg-[#F4F7FC] dark:bg-[#1E293B] relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#39509A]/5 animate-pulse"></div>
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-[#39509A]/5 animate-pulse delay-1000"></div>
+      </div>
+
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Company Info */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            <div className="flex items-center">
+              <i className="fas fa-code text-2xl text-[#39509A] mr-2"></i>
+              <span className="text-xl font-bold text-[#39509A]">Relsoft</span>
+            </div>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+              Building innovative software solutions that transform businesses
+              and drive growth in the digital age.
             </p>
             <div className="flex space-x-4">
-              {socialLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-white transition-colors"
-                  aria-label={`Visit our ${link.icon.split('-')[2]} page`}
+              {["facebook", "twitter", "linkedin", "github"].map((social) => (
+                <motion.a
+                  key={social}
+                  href="#"
+                  className="w-10 h-10 rounded-full bg-[#39509A]/10 flex items-center justify-center text-[#39509A] hover:bg-[#39509A] hover:text-white transition-all duration-300"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <i className={link.icon}></i>
-                </a>
+                  <i className={`fab fa-${social}`}></i>
+                </motion.a>
               ))}
             </div>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-bold mb-6">Services</h3>
-            <ul className="space-y-3">
-              {services.map((service, index) => (
-                <li key={index}>
-                  <Link href={service.href} className="text-slate-400 hover:text-white transition-colors">
-                    {service.name}
+          </motion.div>
+
+          {/* Quick Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            <h3 className="text-lg font-semibold text-[#39509A]">
+              Quick Links
+            </h3>
+            <ul className="space-y-4">
+              {[
+                { name: "Home", href: "/" },
+                { name: "Services", href: "/services" },
+                { name: "About", href: "/about" },
+                { name: "Contact", href: "/contact" },
+              ].map((link) => (
+                <motion.li
+                  key={link.name}
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Link
+                    href={link.href}
+                    className="text-slate-600 dark:text-slate-400 hover:text-[#39509A] transition-colors duration-300 flex items-center"
+                  >
+                    <i className="fas fa-chevron-right text-xs mr-2 text-[#39509A]"></i>
+                    {link.name}
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-bold mb-6">Company</h3>
-            <ul className="space-y-3">
-              {company.map((item, index) => (
-                <li key={index}>
-                  <Link href={item.href} className="text-slate-400 hover:text-white transition-colors">
-                    {item.name}
+          </motion.div>
+
+          {/* Services */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            <h3 className="text-lg font-semibold text-[#39509A]">
+              Our Services
+            </h3>
+            <ul className="space-y-4">
+              {[
+                "AI Solutions",
+                "Web Development",
+                "Mobile Apps",
+                "Cloud Services",
+              ].map((service) => (
+                <motion.li
+                  key={service}
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Link
+                    href={`/services#${service
+                      .toLowerCase()
+                      .replace(/\s+/g, "-")}`}
+                    className="text-slate-600 dark:text-slate-400 hover:text-[#39509A] transition-colors duration-300 flex items-center"
+                  >
+                    <i className="fas fa-chevron-right text-xs mr-2 text-[#39509A]"></i>
+                    {service}
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-bold mb-6">Legal</h3>
-            <ul className="space-y-3">
-              {legal.map((item, index) => (
-                <li key={index}>
-                  <Link href={item.href} className="text-slate-400 hover:text-white transition-colors">
-                    {item.name}
-                  </Link>
-                </li>
+          </motion.div>
+
+          {/* Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            <h3 className="text-lg font-semibold text-[#39509A]">Contact Us</h3>
+            <ul className="space-y-4">
+              {[
+                {
+                  icon: "fas fa-map-marker-alt",
+                  text: "123 Tech Street, Digital City, 12345",
+                },
+                {
+                  icon: "fas fa-phone",
+                  text: "+1 (555) 123-4567",
+                },
+                {
+                  icon: "fas fa-envelope",
+                  text: "contact@relsoft.com",
+                },
+                {
+                  icon: "fas fa-clock",
+                  text: "Mon - Fri: 9:00 AM - 6:00 PM",
+                },
+              ].map((item, index) => (
+                <motion.li
+                  key={index}
+                  className="flex items-start space-x-3 text-slate-600 dark:text-slate-400"
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <i className={`${item.icon} text-[#39509A] mt-1`}></i>
+                  <span>{item.text}</span>
+                </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         </div>
-        
-        <div className="border-t border-slate-800 pt-8 mt-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <p className="text-slate-400 text-sm mb-4 md:mb-0">
-              &copy; {currentYear} Relsoft. All rights reserved.
+
+        {/* Newsletter Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="mt-16 pt-8 border-t border-slate-200/50 dark:border-slate-800/50"
+        >
+          <div className="max-w-2xl mx-auto text-center">
+            <h3 className="text-lg font-semibold text-[#39509A] mb-4">
+              Subscribe to Our Newsletter
+            </h3>
+            <p className="text-slate-600 dark:text-slate-400 mb-6">
+              Stay updated with our latest news, insights, and industry trends.
+            </p>
+            <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-3 rounded-xl border border-slate-200/50 dark:border-slate-800/50 bg-white dark:bg-[#1E293B]/50 focus:outline-none focus:ring-2 focus:ring-[#39509A] focus:border-transparent transition-all duration-300"
+              />
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-3 rounded-xl bg-[#39509A] text-white font-medium hover:bg-[#39509A]/90 transition-colors duration-300"
+              >
+                Subscribe
+              </motion.button>
+            </form>
+          </div>
+        </motion.div>
+
+        {/* Bottom Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="mt-12 pt-8 border-t border-slate-200/50 dark:border-slate-800/50"
+        >
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-slate-600 dark:text-slate-400 text-sm">
+              © {new Date().getFullYear()} Relsoft. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <Link href="/privacy" className="text-sm text-slate-400 hover:text-white transition-colors">
-                Privacy
+              <Link
+                href="/privacy"
+                className="text-slate-600 dark:text-slate-400 hover:text-[#39509A] text-sm transition-colors duration-300"
+              >
+                Privacy Policy
               </Link>
-              <Link href="/terms" className="text-sm text-slate-400 hover:text-white transition-colors">
-                Terms
-              </Link>
-              <Link href="/cookie-policy" className="text-sm text-slate-400 hover:text-white transition-colors">
-                Cookies
+              <Link
+                href="/terms"
+                className="text-slate-600 dark:text-slate-400 hover:text-[#39509A] text-sm transition-colors duration-300"
+              >
+                Terms of Service
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );
