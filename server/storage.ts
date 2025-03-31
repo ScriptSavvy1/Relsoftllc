@@ -1,60 +1,21 @@
-import { users, type User, type InsertUser, type ContactMessage, type InsertContact } from "@shared/schema";
+import { db } from "./db/drizzle.config";
+import { users, contactMessages } from "./db/schema";
+import { eq } from "drizzle-orm";
 
-export interface IStorage {
-  getUser(id: number): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
-  createContactMessage(message: InsertContact): Promise<ContactMessage>;
-  getContactMessages(): Promise<ContactMessage[]>;
+export async function getUser(id: number) {
+  return db.query.users.findFirst({
+    where: eq(users.id, id),
+  });
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<number, User>;
-  private contactMessages: Map<number, ContactMessage>;
-  private userCurrentId: number;
-  private contactCurrentId: number;
-
-  constructor() {
-    this.users = new Map();
-    this.contactMessages = new Map();
-    this.userCurrentId = 1;
-    this.contactCurrentId = 1;
-  }
-
-  async getUser(id: number): Promise<User | undefined> {
-    return this.users.get(id);
-  }
-
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
-  }
-
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.userCurrentId++;
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
-  }
-
-  async createContactMessage(insertMessage: InsertContact): Promise<ContactMessage> {
-    const id = this.contactCurrentId++;
-    const createdAt = new Date();
-    const message: ContactMessage = { 
-      ...insertMessage, 
-      id, 
-      createdAt 
-    };
-    this.contactMessages.set(id, message);
-    return message;
-  }
-
-  async getContactMessages(): Promise<ContactMessage[]> {
-    return Array.from(this.contactMessages.values()).sort((a, b) => 
-      b.createdAt.getTime() - a.createdAt.getTime()
-    );
-  }
+export async function createUser(username: string, password: string) {
+  return db.insert(users).values({ username, password }).returning();
 }
 
-export const storage = new MemStorage();
+export async function createContactMessage(name: string, email: string, subject: string, message: string) {
+  return db.insert(contactMessages).values({ name, email, subject, message }).returning();
+}
+
+export async function getContactMessages() {
+  return db.query.contactMessages.findMany();
+}
