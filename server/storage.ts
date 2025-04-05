@@ -1,21 +1,83 @@
-import { db } from "./db/drizzle.config";
-import { users, contactMessages } from "./db/schema";
-import { eq } from "drizzle-orm";
+import { supabase } from './db/supabase';
 
-export async function getUser(id: number) {
-  return db.query.users.findFirst({
-    where: eq(users.id, id),
-  });
+export interface User {
+  id: number;
+  username: string;
+  password: string;
+  created_at: string;
+  updated_at: string;
 }
 
-export async function createUser(username: string, password: string) {
-  return db.insert(users).values({ username, password }).returning();
+export interface ContactMessage {
+  id: number;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  created_at: string;
+  updated_at: string;
 }
 
-export async function createContactMessage(name: string, email: string, subject: string, message: string) {
-  return db.insert(contactMessages).values({ name, email, subject, message }).returning();
+export async function getUser(id: number): Promise<User | null> {
+  const { data, error } = await supabase
+    .from('users')
+    .select('*')
+    .eq('id', id)
+    .single();
+  
+  if (error) {
+    console.error('Error fetching user:', error);
+    return null;
+  }
+  
+  return data;
 }
 
-export async function getContactMessages() {
-  return db.query.contactMessages.findMany();
+export async function createUser(username: string, password: string): Promise<User | null> {
+  const { data, error } = await supabase
+    .from('users')
+    .insert([{ username, password }])
+    .select()
+    .single();
+  
+  if (error) {
+    console.error('Error creating user:', error);
+    return null;
+  }
+  
+  return data;
+}
+
+export async function createContactMessage(
+  name: string, 
+  email: string, 
+  subject: string, 
+  message: string
+): Promise<ContactMessage | null> {
+  const { data, error } = await supabase
+    .from('contact_messages')
+    .insert([{ name, email, subject, message }])
+    .select()
+    .single();
+  
+  if (error) {
+    console.error('Error creating contact message:', error);
+    return null;
+  }
+  
+  return data;
+}
+
+export async function getContactMessages(): Promise<ContactMessage[]> {
+  const { data, error } = await supabase
+    .from('contact_messages')
+    .select('*')
+    .order('created_at', { ascending: false });
+  
+  if (error) {
+    console.error('Error fetching contact messages:', error);
+    return [];
+  }
+  
+  return data || [];
 }

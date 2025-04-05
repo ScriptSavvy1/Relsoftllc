@@ -1,6 +1,6 @@
 import type { Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
-import { storage } from "./storage";
+import { createContactMessage, getContactMessages } from "./storage";
 import { insertContactSchema } from "@shared/schema";
 import { z } from "zod";
 import { ZodError } from "zod";
@@ -21,7 +21,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const { privacyPolicy, ...messageData } = contactData;
       
       // Store contact message
-      const contactMessage = await storage.createContactMessage(messageData);
+      const contactMessage = await createContactMessage(
+        messageData.name,
+        messageData.email,
+        messageData.subject,
+        messageData.message
+      );
+      
+      if (!contactMessage) {
+        return res.status(500).json({
+          message: "Failed to create contact message"
+        });
+      }
       
       // In a real app, you might send an email notification here
       
@@ -48,7 +59,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Get all contact messages (would typically be protected in production)
   app.get("/api/contact", async (req: Request, res: Response) => {
     try {
-      const messages = await storage.getContactMessages();
+      const messages = await getContactMessages();
       return res.status(200).json(messages);
     } catch (error) {
       console.error("Error fetching contact messages:", error);
